@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Karan</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #d4e8ff);
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      max-width: 330px;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ff4f8b;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .heart {
+      font-size: 2.5rem;
+      animation: beat 1s infinite;
+      margin-top: 10px;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="envelope" class="envelope" onclick="openLetter()">
+    ✉️
+  </div>
+
+  <div id="letter" class="letter">
+    <div class="card">
+      <h1>Hey Karan (Mendak) :)</h1>
+      <p>Karan… you tease me so much that I should be annoyed, but instead I ended up liking you a little more every day. So I made this for you… hope you feel it the way I do.</p>
+      <p>I know I confessed once and you weren’t ready… and honestly I respected that.</p>
+      <p>But these last 5 months — getting close to you, laughing with you, getting teased by you every single day — have become my favourite part of everything.</p>
+      <p>You don’t share everything with me, and that’s okay… I’ve never expected you to.</p>
+      <p>But the way you check on me when I’m sad… the way you make sure I’m okay… that means more than you think.</p>
+      <p>You’ve become someone really important to me — not because of what happened before, but because of who you are with me now.</p>
+      <p>Whenever I see you smiling with your sparkling eyes, I fall for you again and again.</p>
+
+      <h2 style='margin-top:20px;'>Tap the cards ↓</h2>
+
+      <div class="card-box" onclick="toggleCard(1)">He's so good at games</div>
+      <div id="card1" class="hidden-card">I love how effortlessly you win everything… it’s so attractive.</div>
+
+      <div class="card-box" onclick="toggleCard(2)">He looks good</div>
+      <div id="card2" class="hidden-card">You have that soft-but-smart look… it pulls me in every time.</div>
+
+      <div class="card-box" onclick="toggleCard(3)">His sparkling eyes</div>
+      <div id="card3" class="hidden-card">Your eyes when you smile… that’s my favourite version of you.</div>
+
+      <h2 style='margin-top:25px;'>Playlist 🎧</h2>
+      <p>• Dhoonde Akhiyaan<br>• Shayrana<br>• Saiyaara</p>
+
+      <div class="heart">❤">❤</div>
+    </div>
+  </div>
+
+  <style>
+    .envelope {
+      font-size: 4rem;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    #letter {
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+  </style>
+
+  <script>
+    function openLetter() {
+      document.getElementById('envelope').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+    }
+    function moveNo() {
+      const btn = document.getElementById('noBtn');
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+<audio autoplay loop>
+  <source src="https://aac.saavncdn.com/206/5cd2ecc522bc62f142d5e6f27bb1e693_320.mp4" type="audio/mp4">
+</audio>
+
+<div class="float-hearts">
+  <div class="heart-shape">❤</div>
+  <div class="heart-shape">❤</div>
+  <div class="heart-shape">❤</div>
+</div>
+
+<style>
+  .heart-shape {
+    position: fixed;
+    bottom: -20px;
+    font-size: 1.5rem;
+    animation: floatUp 6s linear infinite;
+    color: #ff4f8b;
+  }
+  .heart-shape:nth-child(1) { left: 20%; animation-duration: 7s; }
+  .heart-shape:nth-child(2) { left: 50%; animation-duration: 5s; }
+  .heart-shape:nth-child(3) { left: 80%; animation-duration: 6.5s; }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+  }
+
+  .card, h1, p, .card-box { font-family: 'Playfair Display', serif; }
+</style>
+
+<div id="questionBox" style="margin-top:30px; display:block;">
+  <h2 style="font-family:'Playfair Display', serif; color:#ff4f8b;">Do you like me? 💗</h2>
+  <button onclick="answerYes()" style="padding:10px 20px; border:none; border-radius:10px; background:#ff8ab8; color:white; font-size:1rem; cursor:pointer; margin:5px;">Yes</button>
+  <button id="noBtn" onclick="answerNo()" onmouseover="moveNo()" style="padding:10px 20px; border:none; border-radius:10px; background:#bbbbbb; color:white; font-size:1rem; cursor:pointer; margin:5px; position:relative;">No</button>
+  <p id="responseText" style="font-family:'Playfair Display', serif; margin-top:15px; font-size:1rem; color:#444;"></p>
+</div>
+
+<script>
+  let noClicks = 0;
+  function answerYes() {
+    document.getElementById('responseText').innerHTML = "Hehe I knew it 🫶💗";
+  }
+  function answerNo() {
+    noClicks++;
+    if (noClicks === 1) {
+      document.getElementById('responseText').innerHTML = "Think one more time 🥺";
+    } else if (noClicks === 2) {
+      document.getElementById('responseText').innerHTML = "You really don’t like me? 😭";
+    } else {
+      document.getElementById('responseText').innerHTML = "Okay fine… but I still like you mendak 🙄💗";
+    }
+  }
+</script>
+
+</body>
+</html>
